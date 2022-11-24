@@ -15,6 +15,7 @@ const Navbar = () => {
        <li><Link to='/'>Advertised items</Link></li>
        {user?.uid? 
         <>
+         <li><Link to='/Carsoptions/:id'>Cars Service</Link></li>
          <li><Link to='/signout' onClick={handelsignOut}>Sign Out</Link></li>
         </>
        :<li><Link to='/login'>login</Link></li>}
