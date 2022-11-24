@@ -1,18 +1,40 @@
-import React from 'react';
+import React, { useContext, useState } from 'react';
 import { useForm } from 'react-hook-form';
+import toast from 'react-hot-toast';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../Context/AuthProvider';
 
 const Signup = () => {
+    const {createUser,updateUser} = useContext(AuthContext)
     const { register, handleSubmit } = useForm();
-    const handellogin = data =>{
+    const [signupError , setSignUpError] = useState('')
+    const handelSignup = data =>{
         console.log(data)
+        setSignUpError('')
+        createUser(data.email,data.password)
+        .then(result=>{
+            const user = result.user;
+            console.log(user)
+            toast('user Create SuccessFully')
+            const userInfo ={
+                displayName : data.name
+            }
+            updateUser(userInfo)
+            .then(()=>{})
+            .catch(err=>console.log(err))
+        })
+        .catch(error=>{
+            console.log(error)
+            signupError(error.message)
+        
+        })
     }
     return (
         <div className=' h-[800px] w-96 justify-center items-center mx-auto '>
 
         <div >
             <h2 className='text-center text-4xl'>SignUp</h2>
-            <form className='border mx-auto p-10 mt-7  ' onSubmit={handleSubmit(handellogin)}>
+            <form className='border mx-auto p-10 mt-7  ' onSubmit={handleSubmit(handelSignup)}>
 
 
                 <div className="form-control w-full max-w-xs">
@@ -35,8 +57,10 @@ const Signup = () => {
                     minLength:{value :6,message:"password must be 6 Character"}
                    
                 })} 
+     
                 placeholder="First name" className="input input-bordered w-full max-w-xs" />
                 </div>
+                {signupError && <p className='text-red-600'>{signupError}</p>}
                 <input className='btn btn-primary w-80  mt-10'  type="submit" />
                
             </form>

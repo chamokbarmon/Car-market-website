@@ -1,11 +1,23 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../Context/AuthProvider';
 
 const Navbar = () => {
+    const {user,logOut } = useContext(AuthContext)
+
+    const handelsignOut =()=>{
+       logOut()
+       .then(()=>{})
+       .catch(err=>console.log(err))
+    }
     const menuItems = <>
        <li><Link to='/'>Home</Link></li>
        <li><Link to='/'>Advertised items</Link></li>
-       <li><Link to='/login'>login</Link></li>
+       {user?.uid? 
+        <>
+         <li><Link to='/signout' onClick={handelsignOut}>Sign Out</Link></li>
+        </>
+       :<li><Link to='/login'>login</Link></li>}
     
     </>
     return (
