@@ -3,7 +3,13 @@ import ALlShowCar from '../AllShowCar/ALlShowCar';
 
 const ShowCars = () => {
     const [cars,Setcars] = useState([])
-
+    console.log(cars)
+    
+    useEffect(()=>{
+        fetch(`http://localhost:5000/Carsoptions`)
+        .then(res=>res.json())
+        .then(data=>Setcars(data))
+    },[])
     
     return (
         <div>
