@@ -1,6 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
 import Main from "../Componed/Layout/main/Main";
 import CatagoryItem from "../Pages/CatagoryItem/CatagoryItem";
+import CatagoryPrivate from "../Pages/CatagoryPrivate/CatagoryPrivate";
 import Home from "../Pages/Home/Home";
 import Login from "../Pages/Login/Login";
 import Signup from "../Pages/Signup/Signup";
@@ -23,14 +24,23 @@ const router = createBrowserRouter([
                 path:'/signup',
                 element:<Signup></Signup>
             },
-            {
-
+          
+               {
                 path:'/Carsoptions/:id',
-                element:<CatagoryItem></CatagoryItem>,
-                loader:({params}) =>fetch(`https://used-product-market-server.vercel.app/Carsoptions/${params.id}`)
-
-            }
+                element:<PrivateRoute><CatagoryItem></CatagoryItem></PrivateRoute>,
+                loader:({params}) =>fetch(`https://used-product-market-server.vercel.app/Carsoptions/${params.id}`),
+               }
+            
+            
         ]
-    }
+    },
+    
+
+       
+
+    
+
+    
+
 ])
 export default router;

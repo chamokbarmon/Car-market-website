@@ -1,5 +1,6 @@
 import React from 'react';
 import { useLoaderData } from 'react-router-dom';
+import CarsecondModal from '../CarSecondModal/CarsecondModal';
 import ModalCarSubmit from '../ModalCarSubmit/ModalCarSubmit';
 
 const CatagoryItem = () => {
@@ -44,11 +45,18 @@ const CatagoryItem = () => {
                          </div>
                          <p className='text-1xl font-semibold'>Year :24-11-{service.Product2[0].year}</p>  
                     <div className="card-actions justify-end">
-                        <label label htmlFor = "booking-modal" className="btn btn-primary" >Book Now</label >
+                        <label label htmlFor = "booking-modal1" className="btn btn-primary" >Book Now</label >
                     </div>
-                    <ModalCarSubmit>
-                        
+                    <ModalCarSubmit
+                      key={service._id}
+                      service={service}
+                     > 
                     </ModalCarSubmit>
+                    <CarsecondModal key={service._id}
+                    service={service}
+                    >
+
+                    </CarsecondModal>
                 </div>
             </div>
         </div>

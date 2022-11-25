@@ -9,8 +9,9 @@ const Navbar = () => {
     const handelsignOut =()=>{
        logOut()
        .then(()=>{
-           loading(true)
-            navigate('/')
+           
+            navigate('/');
+            loading(true)
        })
        .catch(err=>console.log(err))
     }
