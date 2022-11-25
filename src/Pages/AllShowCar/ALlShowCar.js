@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+
 const ALlShowCar = ({ car }) => {
     const {picture,name,description,_id } =car;
     return (
@@ -12,6 +13,7 @@ const ALlShowCar = ({ car }) => {
                 <div className="card-actions justify-end">
                     <button className="btn btn-primary text-center"><Link to={`/Carsoptions/${_id}`}>See All</Link></button>
                 </div>
+                
             </div>
         </div>
     );

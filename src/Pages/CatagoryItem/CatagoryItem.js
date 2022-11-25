@@ -1,5 +1,6 @@
 import React from 'react';
 import { useLoaderData } from 'react-router-dom';
+import ModalCarSubmit from '../ModalCarSubmit/ModalCarSubmit';
 
 const CatagoryItem = () => {
     const service = useLoaderData()
@@ -23,7 +24,8 @@ const CatagoryItem = () => {
                          </div>
                          <p className='text-1xl font-semibold'>Year :24-11-{service.Product1[0].year}</p>  
                     <div className="card-actions justify-end">
-                        <button className="btn btn-primary">Buy Now</button>
+                    <label label htmlFor = "booking-modal" className="btn btn-primary" >Book Now</label>
+                    
                     </div>
                 </div>
             </div>
@@ -42,8 +44,11 @@ const CatagoryItem = () => {
                          </div>
                          <p className='text-1xl font-semibold'>Year :24-11-{service.Product2[0].year}</p>  
                     <div className="card-actions justify-end">
-                        <button className="btn btn-primary">Buy Now</button>
+                        <label label htmlFor = "booking-modal" className="btn btn-primary" >Book Now</label >
                     </div>
+                    <ModalCarSubmit>
+                        
+                    </ModalCarSubmit>
                 </div>
             </div>
         </div>

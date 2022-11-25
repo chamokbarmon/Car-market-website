@@ -1,19 +1,23 @@
 import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Context/AuthProvider';
 
 const Navbar = () => {
-    const {user,logOut } = useContext(AuthContext)
+    const {user,logOut,loading } = useContext(AuthContext)
+    const navigate = useNavigate()
 
     const handelsignOut =()=>{
        logOut()
-       .then(()=>{})
+       .then(()=>{
+           loading(true)
+            navigate('/')
+       })
        .catch(err=>console.log(err))
     }
     const menuItems = <>
        <li><Link to='/'>Home</Link></li>
        <li><Link to='/'>Advertised items</Link></li>
-       {user?.uid? 
+       {user?.email? 
         <>
          <li><Link to='/Carsoptions/:id'>Cars Service</Link></li>
          <li><Link to='/signout' onClick={handelsignOut}>Sign Out</Link></li>

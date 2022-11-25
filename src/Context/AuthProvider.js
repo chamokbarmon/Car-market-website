@@ -22,7 +22,7 @@ const AuthProvider = ({children}) => {
         return signOut(auth)
     }
     const updateUser = (userinfo)=>{
-        return updateProfile(user,userinfo)
+        return updateProfile(auth.carrentUser,userinfo)
     }
     
     useEffect(()=>{

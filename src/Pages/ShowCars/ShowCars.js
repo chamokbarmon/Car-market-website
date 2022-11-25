@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import ALlShowCar from '../AllShowCar/ALlShowCar';
 
+
 const ShowCars = () => {
     const [cars,Setcars] = useState([])
     console.log(cars)
     
     useEffect(()=>{
-        fetch(`http://localhost:5000/Carsoptions`)
+        fetch(`https://used-product-market-server.vercel.app/Carsoptions`)
         .then(res=>res.json())
         .then(data=>Setcars(data))
     },[])
@@ -19,6 +20,7 @@ const ShowCars = () => {
                 cars.map(car=><ALlShowCar key={car._id} car={car}></ALlShowCar> )
              }  
             </div>
+           
         </div>
     );
 };
