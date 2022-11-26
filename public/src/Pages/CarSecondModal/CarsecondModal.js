@@ -26,7 +26,7 @@ const CarsecondModal = ({service}) => {
            
         }
       console.log(booking)
-      fetch(`http://localhost:5000/bookings`,{
+      fetch(`https://used-product-market-server.vercel.app/bookings`,{
         method:'POST',
         headers:{
             'content-type':'application/json'

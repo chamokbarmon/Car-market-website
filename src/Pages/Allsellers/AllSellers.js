@@ -6,7 +6,7 @@ const AllSellers = () => {
        //  load all user data
 
        useEffect(() => {
-        fetch('http://localhost:5000/allUser')
+        fetch('https://used-product-market-server.vercel.app/allUser')
         .then(res=>res.json())
         .then(data =>{
          setAllSeller(data);
