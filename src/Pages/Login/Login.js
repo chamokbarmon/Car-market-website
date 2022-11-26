@@ -1,13 +1,16 @@
+import { GoogleAuthProvider } from 'firebase/auth';
 import { useContext } from 'react';
 import { useForm } from 'react-hook-form';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Context/AuthProvider';
 
 const Login = () => {
-    const {signIn} = useContext(AuthContext)
+    const {signIn,GoogleProvider} = useContext(AuthContext)
     const { register, handleSubmit } = useForm();
     const location = useLocation()
     const navigate = useNavigate()
+     
+    const GoogleSign = new GoogleAuthProvider()
 
     const from = location.state?.from?.pathname || '/'
     const handellogin = data =>{
@@ -21,6 +24,18 @@ const Login = () => {
         .catch(error=>console.log(error))
 
     }
+    const handelGoogle =()=>{
+        GoogleProvider(GoogleSign)
+         .then(result=>{
+           const user = result.user;
+           console.log(user)
+           navigate('/')
+    
+         })
+         .catch(error=>{
+           console.error('error',error)
+         })
+      }
      
     return (
         <div className=' h-[800px] w-96 justify-center items-center mx-auto '>
@@ -46,7 +61,7 @@ const Login = () => {
                     placeholder="First name" className="input input-bordered w-full max-w-xs" />
                     </div>
                     <input className='btn btn-primary w-80  mt-10'  type="submit" />
-                    <button  className='btn btn-outline-secondary w-80  mt-5 font-bold text-white'>Google</button>
+                    <button onClick={ handelGoogle} className='btn btn-outline-secondary w-80  mt-5 font-bold text-white'>Google</button>
                 </form>
                 <p className='text-priamry font-bold'>New to Cars Market <Link to='/signup' className='text-secondary'>Signup</Link> </p>
 

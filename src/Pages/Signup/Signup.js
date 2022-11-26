@@ -9,6 +9,8 @@ const Signup = () => {
     const { register, handleSubmit } = useForm();
     const [signupError , setSignUpError] = useState('')
     const navigate =useNavigate();
+
+   
     const handelSignup = data =>{
         console.log(data)
         setSignUpError('')
@@ -19,13 +21,10 @@ const Signup = () => {
             toast('user Create SuccessFully')
             navigate('/')
             const userInfo ={
-                displayName : data.name
+                displayName:data.name
             }
             updateUser(userInfo)
-            .then(()=>{
-                
-
-            })
+            .then(()=>{saveUser(data.name,data.email)})
             .catch(err=>console.log(err))
         })
         .catch(error=>{
@@ -33,7 +32,24 @@ const Signup = () => {
             signupError(error.message)
         
         })
+
+        const saveUser =(name, email)=>{
+            const user = {name, email};
+            fetch(`http://localhost:5000/users`,{
+                method:'POST',
+                headers:{
+                    'content-type':'application/json'
+                },
+                body:JSON.stringify(user)
+            })
+            .then(res=>res.json())
+            .then(data=>{
+                console.log('saveuser',data)
+                navigate('/')
+            })
+        }
     }
+    
     return (
         <div className=' h-[800px] w-96 justify-center items-center mx-auto '>
 
