@@ -1,9 +1,10 @@
 import { useQuery } from '@tanstack/react-query';
-import React, { useContext,  } from 'react';
+import React, { useContext } from 'react';
 import { AuthContext } from '../../Context/AuthProvider';
 
 const Dashboard = () => {
     const {user} = useContext(AuthContext)
+
     const url =`http://localhost:5000/bookings?email=${user?.email}`
     const {data:bookings = []} = useQuery({
         queryKey:['bookings',user?.email],
@@ -13,7 +14,6 @@ const Dashboard = () => {
             return data;
         }
     })
-
     return (
         <div>
             <h1 className='text-3xl text-bold'>My Dashboard</h1>

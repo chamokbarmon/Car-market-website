@@ -5,27 +5,21 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Context/AuthProvider';
 
 const Login = () => {
-
-
-    const history = useNavigate()
-    const location = useLocation();
-    let { from } = location.state || { from: { pathname: "/" } };
     const {signIn,GoogleProvider} = useContext(AuthContext)
     const { register, handleSubmit } = useForm();
-    // const location = useLocation()
-    // const navigate = useNavigate()
+    const location = useLocation()
+    const navigate = useNavigate()
      
     const GoogleSign = new GoogleAuthProvider()
 
-    // const from = location.state?.from?.pathname || '/'
+    const from = location.state?.from?.pathname || '/'
     const handellogin = data =>{
         console.log(data)
         signIn(data.email,data.password)
         .then(result=>{
             const user = result.user;
             console.log(user)
-            // navigate(from,{replace:true})
-            from && history(from.pathname)
+            navigate(from,{replace:true})
         })
         .catch(error=>console.log(error))
 
@@ -35,7 +29,7 @@ const Login = () => {
          .then(result=>{
            const user = result.user;
            console.log(user)
-        //    navigate('/')
+           navigate('/')
     
          })
          .catch(error=>{
