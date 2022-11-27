@@ -1,9 +1,11 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import toast from 'react-hot-toast';
+import {  useNavigate } from 'react-router-dom';
 
 const AddProduct = () => {
     const { register, handleSubmit } = useForm();
+    const navigate = useNavigate()
     const handellogin = data =>{
         console.log(data)
         const product={
@@ -25,13 +27,15 @@ const AddProduct = () => {
        .then(result=>{
            console.log(result)
            toast.success('Data Upload  successfully')
+           navigate('/dashboard/myProduct')
+
            
        })
         
         .then(result=>{
             const user = result.user;
             console.log(user)
-          
+              
         })
         .catch(error=>console.log(error))
 

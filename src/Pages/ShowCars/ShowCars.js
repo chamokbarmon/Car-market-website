@@ -10,7 +10,7 @@ const ShowCars = () => {
         fetch(`https://used-product-market-server.vercel.app/Carsoptions`)
         .then(res=>res.json())
         .then(data=>Setcars(data))
-    },[])
+    },[cars])
     
     return (
         <div>
