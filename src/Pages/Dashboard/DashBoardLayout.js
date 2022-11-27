@@ -17,6 +17,7 @@ const DashBoardLayout = () => {
                     <ul className="menu p-4 w-80 bg-base-100 text-base-content">
                        
                         <li><Link to='/dashboard'>My orders</Link></li>
+                        <li><Link to='/dashboard/product'>Add a Product</Link></li>
                         <li><Link to='/dashboard/seller'>All sellers</Link></li>
                         <li><Link to='/dashboard/admin'>Admin</Link></li>
                         

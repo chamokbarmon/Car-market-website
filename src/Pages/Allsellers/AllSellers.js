@@ -15,7 +15,7 @@ const AllSellers = () => {
       }) 
     
     const handelAdmin =(id)=>{
-        fetch(`http://localhost:5000/users/admin/${id}`,{
+        fetch(`https://used-product-market-server.vercel.app/allUser/admin/${id}`,{
             method:'PUT'
         })
         .then(res=>res.json())
@@ -45,11 +45,11 @@ const AllSellers = () => {
                     </thead>
                     <tbody>
                         {
-                           allSeller.map((seller,i)=><tr>
+                           allSeller.map((seller,i)=><tr key={seller._id}>
                             <th>{i+1}</th>
                             <td>{seller.name}</td>
                             <td>{seller.email}</td>
-                            <td>{allSeller?.role!=='admin'&&<button onclick={()=>handelAdmin(seller._id)} className='btn btn-primary '>Admin Create</button>}</td>
+                            <td>{allSeller?.role !=='admin' &&<button onclick={()=>handelAdmin(seller._id)} className='btn btn-primary '>Admin Create</button>}</td>
                             <td><button className='btn btn-danger'>Delete</button></td>
                           </tr>) 
                         }
