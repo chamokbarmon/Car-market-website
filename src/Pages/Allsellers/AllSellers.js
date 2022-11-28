@@ -73,7 +73,7 @@ const AllSellers = () => {
                     class="form-select form-select-sm"
                     aria-label=".form-select-sm example"
                   >
-                    <option>Select</option>
+                    <option>Admin/user</option>
                     <option value="user">user</option>
                     <option value="admin">admin</option>
                   </select>
