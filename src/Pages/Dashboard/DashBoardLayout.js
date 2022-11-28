@@ -19,7 +19,7 @@ const DashBoardLayout = () => {
       .then((data) => setIsAdmin(data));
   }, []);
 
-  return (
+  return(
     <div>
       <Navbar></Navbar>
       <div className="drawer drawer-mobile">
