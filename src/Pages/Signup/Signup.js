@@ -53,11 +53,7 @@ const handleChange = (e) => {
         e.preventDefault()
         // post data
 
-<<<<<<< HEAD
-        fetch(` https://used-product-market-server.vercel.app/users`, {
-=======
         fetch(`http://localhost:5000/users`, {
->>>>>>> ca853b1799347b5439540c5a5323a3f21b0c7451
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -96,11 +92,7 @@ const handleChange = (e) => {
         const saveUser = (name, email) => {
             const user = { name, email };
     
-<<<<<<< HEAD
-            // fetch(` https://used-product-market-server.vercel.app/users`, {
-=======
             // fetch(`http://localhost:5000/users`, {
->>>>>>> ca853b1799347b5439540c5a5323a3f21b0c7451
             //     method: 'POST',
             //     headers: {
             //         'content-type': 'application/json'
@@ -121,9 +113,6 @@ const handleChange = (e) => {
     return (
         <div className=' h-[800px] w-96 justify-center items-center mx-auto '>
 
-<<<<<<< HEAD
-           
-=======
             {/* <div >
                 <h2 className='text-center text-4xl'>SignUp</h2>
                 <form className='border mx-auto p-10 mt-7  ' onSubmit={handleSubmit(handelSignup)}>
@@ -162,7 +151,6 @@ const handleChange = (e) => {
 
             </div>
         </div> */}
->>>>>>> ca853b1799347b5439540c5a5323a3f21b0c7451
 
 
 
