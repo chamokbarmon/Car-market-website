@@ -16,7 +16,7 @@ const AddProduct = () => {
             description:data.discription
 
        }
-       fetch('http://localhost:5000/products',{
+       fetch(' https://used-product-market-server.vercel.app/products',{
            method:'POST',
            headers:{
                'content-type':'application/json'

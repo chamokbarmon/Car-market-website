@@ -7,7 +7,7 @@ const AllSellers = () => {
   //  load all user data
 
   useEffect(() => {
-    fetch("http://localhost:5000/allUser")
+    fetch(" https://used-product-market-server.vercel.app/allUser")
       .then((res) => res.json())
       .then((data) => {
         setAllSeller(data);
@@ -21,7 +21,7 @@ const AllSellers = () => {
 
   // handle role change submit
   const handleRoleSubmit = (id) => {
-    fetch("http://localhost:5000/roleUpdate/" + id, {
+    fetch(" https://used-product-market-server.vercel.app/roleUpdate/" + id, {
       method: "PATCH",
       headers: { "Content-type": "application/json; charset=UTF-8" },
       body: JSON.stringify({ role: role }),
@@ -35,7 +35,7 @@ const AllSellers = () => {
   //   handle delete
   const handleDelete = (id) => {
     console.log(id);
-    fetch("http://localhost:5000/sellerDelete/" + id, {
+    fetch(" https://used-product-market-server.vercel.app/sellerDelete/" + id, {
       method: "DELETE",
       headers: { "Content-type": "application/json; charset=UTF-8" },
     })

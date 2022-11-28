@@ -11,7 +11,7 @@ const MyProduct = () => {
     queryKey:['products'],
     queryFn:async()=>{
          try{
-           const res = await fetch('http://localhost:5000/products',{
+           const res = await fetch(' https://used-product-market-server.vercel.app/products',{
             headers:{
                 'content-type': 'application/json'
             }
@@ -25,7 +25,7 @@ const MyProduct = () => {
     }
    })
    const proDelete =product=>{
-    fetch(`http://localhost:5000/products/${product._id}`,{
+    fetch(` https://used-product-market-server.vercel.app/products/${product._id}`,{
         method:'DELETE',
         headers:{
             'content-type': 'application/json' 

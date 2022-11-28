@@ -10,7 +10,7 @@ const DashBoardLayout = () => {
   const [isAdmin, setIsAdmin] = useState(false);
   console.log("my admin ",isAdmin)
   useEffect(() => {
-    fetch("http://localhost:5000/allAdmin", {
+    fetch(" https://used-product-market-server.vercel.app/allAdmin", {
       method: "POST",
       headers: { "content-type": "application/json" },
       body: JSON.stringify({ email:user.email }),
